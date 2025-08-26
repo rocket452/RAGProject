@@ -1,0 +1,232 @@
+CloudSync Desktop Client Installation Guide
+
+SYSTEM REQUIREMENTS
+====================
+
+Minimum Requirements:
+- Operating System: Windows 10 (64-bit), macOS 10.14, or Ubuntu 18.04+
+- Memory (RAM): 4 GB minimum, 8 GB recommended
+- Storage: 2 GB free disk space for installation
+- Internet: Broadband connection required
+- Display: 1024x768 minimum resolution
+
+Recommended Requirements:
+- Memory (RAM): 16 GB for optimal performance
+- Storage: SSD with 10 GB free space
+- Internet: High-speed broadband (10+ Mbps)
+- Display: 1920x1080 or higher resolution
+
+Supported File Systems:
+- Windows: NTFS, exFAT
+- macOS: APFS, HFS+
+- Linux: ext4, Btrfs, XFS
+
+DOWNLOAD AND INSTALLATION
+========================
+
+Windows Installation:
+1. Download CloudSync-Setup-Windows-x64.exe from https://cloudsync.com/download
+2. Right-click the installer and select "Run as administrator"
+3. If Windows SmartScreen appears, click "More info" then "Run anyway"
+4. Follow the installation wizard:
+   - Accept the license agreement
+   - Choose installation directory (default: C:\Program Files\CloudSync)
+   - Select components to install:
+     * CloudSync Desktop Client (required)
+     * Shell Integration (recommended)
+     * Command Line Tools (optional)
+   - Choose Start Menu folder name
+   - Select additional tasks:
+     * Create desktop shortcut
+     * Add to Windows startup
+5. Click "Install" and wait for completion
+6. Launch CloudSync from Start Menu or desktop shortcut
+
+macOS Installation:
+1. Download CloudSync-macOS.dmg from https://cloudsync.com/download
+2. Open the DMG file by double-clicking
+3. Drag CloudSync.app to the Applications folder
+4. If Gatekeeper blocks the app:
+   - Go to System Preferences > Security & Privacy
+   - Click "Open Anyway" next to CloudSync message
+5. Launch CloudSync from Applications folder or Launchpad
+6. Grant necessary permissions when prompted:
+   - Full Disk Access (for file synchronization)
+   - Network access (for cloud connectivity)
+
+Linux Installation (Ubuntu/Debian):
+1. Download the .deb package: cloudsync-linux-amd64.deb
+2. Install using command line:
+   sudo dpkg -i cloudsync-linux-amd64.deb
+   sudo apt-get install -f  # Fix any dependency issues
+3. Or install using GUI package manager (double-click the .deb file)
+4. Launch from Applications menu or run 'cloudsync' in terminal
+
+Linux Installation (CentOS/RHEL/Fedora):
+1. Download the .rpm package: cloudsync-linux-x86_64.rpm
+2. Install using command line:
+   sudo rpm -ivh cloudsync-linux-x86_64.rpm
+   # OR
+   sudo yum localinstall cloudsync-linux-x86_64.rpm
+   # OR (newer systems)
+   sudo dnf install cloudsync-linux-x86_64.rpm
+3. Launch from Applications menu or run 'cloudsync' in terminal
+
+FIRST TIME SETUP
+================
+
+Account Configuration:
+1. Launch CloudSync application
+2. Click "Sign In" or "Create Account"
+3. Enter your email address and password
+4. If using two-factor authentication, enter the 6-digit code from your authenticator app
+5. Choose your synchronization folder:
+   - Windows default: C:\Users\[Username]\CloudSync
+   - macOS default: /Users/[Username]/CloudSync  
+   - Linux default: /home/[username]/CloudSync
+6. Select initial sync options:
+   - Upload existing files in sync folder
+   - Download all cloud files
+   - Smart sync (download on demand)
+
+Folder Selection:
+1. Click "Choose Folders" in the main interface
+2. Browse and select folders you want to synchronize
+3. Set sync preferences for each folder:
+   - Bidirectional sync (default)
+   - Upload only
+   - Download only
+4. Configure exclusion patterns:
+   - Temporary files (*.tmp, *.temp)
+   - System files (Thumbs.db, .DS_Store)
+   - Large media files (optional)
+
+CONFIGURATION OPTIONS
+====================
+
+General Settings:
+- Start CloudSync when computer starts: Enabled
+- Show desktop notifications: Enabled  
+- Minimize to system tray: Enabled
+- Check for updates automatically: Enabled
+- Language: Auto-detect (or select manually)
+- Theme: Light, Dark, or System default
+
+Sync Settings:
+- Bandwidth limit: Unlimited (or set custom limits)
+- Sync frequency: Real-time (or set intervals)
+- Conflict resolution: Ask user (or auto-resolve)
+- Version history: Keep 10 versions (configurable)
+- Deleted file handling: Move to trash (30-day retention)
+
+Advanced Settings:
+- Proxy configuration: Auto-detect or manual setup
+- Local database location: Default or custom path
+- Debug logging: Disabled (enable for troubleshooting)
+- File permissions: Preserve original permissions
+- Symbolic link handling: Follow links or preserve as links
+
+NETWORK CONFIGURATION
+=====================
+
+Firewall Settings:
+CloudSync requires the following ports to be open:
+- TCP 443 (HTTPS) - for secure API communication
+- TCP 80 (HTTP) - for initial setup and redirects
+- UDP 53 (DNS) - for domain name resolution
+
+Corporate Networks:
+If behind a corporate firewall, configure proxy settings:
+1. Go to Settings > Network
+2. Select "Manual proxy configuration"
+3. Enter proxy server details:
+   - HTTP proxy: proxy.company.com:8080
+   - HTTPS proxy: proxy.company.com:8080
+   - Bypass proxy for: localhost, 127.0.0.1, *.local
+4. Enter authentication credentials if required
+
+Whitelist the following domains:
+- *.cloudsync.com
+- api.cloudsync.com
+- cdn.cloudsync.com
+- updates.cloudsync.com
+
+TROUBLESHOOTING
+===============
+
+Common Installation Issues:
+
+Windows:
+- Error 1603: Run installer as administrator, temporarily disable antivirus
+- Missing Visual C++ redistributables: Install from Microsoft website
+- "Windows protected your PC": Click "More info" then "Run anyway"
+
+macOS:
+- "App is damaged": Run 'sudo xattr -rd com.apple.quarantine /Applications/CloudSync.app'
+- Permission denied: Grant Full Disk Access in System Preferences > Security & Privacy
+- Slow sync: Exclude from real-time scanning in antivirus software
+
+Linux:
+- Dependency issues: Run 'sudo apt-get install -f' to fix dependencies
+- Permission problems: Ensure user is in 'cloudsync' group
+- Icon not showing: Run 'sudo gtk-update-icon-cache' to refresh icon cache
+
+Sync Issues:
+- Files not syncing: Check internet connection, verify account storage quota
+- Slow upload/download: Adjust bandwidth settings, check for conflicting apps
+- Sync conflicts: Review conflict resolution settings, manually resolve duplicates
+- Missing files: Check trash/recycle bin, review sync exclusion rules
+
+Performance Optimization:
+- Exclude large files from real-time sync
+- Use selective sync for infrequently accessed folders  
+- Increase local cache size for better performance
+- Schedule intensive operations during off-peak hours
+- Enable compression for slow internet connections
+
+UNINSTALLATION
+==============
+
+Windows:
+1. Go to Settings > Apps > Apps & features
+2. Find CloudSync in the list and click "Uninstall"
+3. Follow the uninstall wizard
+4. Optionally remove user data from %APPDATA%\CloudSync
+
+macOS:
+1. Move CloudSync.app from Applications to Trash
+2. Remove user data: ~/Library/Application Support/CloudSync
+3. Remove preferences: ~/Library/Preferences/com.cloudsync.desktop.plist
+
+Linux:
+1. Run: sudo apt remove cloudsync (or sudo rpm -e cloudsync)
+2. Remove user data: rm -rf ~/.config/cloudsync
+3. Remove cache: rm -rf ~/.cache/cloudsync
+
+SUPPORT AND RESOURCES
+====================
+
+Getting Help:
+- Knowledge Base: https://help.cloudsync.com
+- Community Forum: https://community.cloudsync.com  
+- Email Support: support@cloudsync.com
+- Live Chat: Available during business hours (9 AM - 5 PM PST)
+
+Log Files Location:
+- Windows: %APPDATA%\CloudSync\Logs
+- macOS: ~/Library/Logs/CloudSync
+- Linux: ~/.config/cloudsync/logs
+
+When contacting support, please include:
+- Operating system and version
+- CloudSync application version
+- Relevant log files
+- Steps to reproduce the issue
+- Screenshots (if applicable)
+
+Version History:
+- v3.2.1 (2024-01-15) - Bug fixes for sync conflicts
+- v3.2.0 (2024-01-01) - Added selective sync feature
+- v3.1.5 (2023-12-15) - Performance improvements  
+- v3.1.0 (2023-11-01) - New user interface design
+- v3.0.0 (2023-09-01) - Major architecture update

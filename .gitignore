@@ -1,0 +1,243 @@
+# ================================
+# .gitignore for Free RAG System
+# ================================
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# ================================
+# RAG System Specific Files
+# ================================
+
+# Generated embeddings and indexes (these are recreated)
+rag_index/
+*.faiss
+*.index
+documents.json
+embeddings/
+vector_store/
+
+# Model cache directories (these are huge!)
+.cache/
+models/
+*.bin
+*.safetensors
+*.pkl
+*.pt
+*.pth
+*.onnx
+*.tflite
+
+# Hugging Face cache (can be 1GB+)
+.cache/huggingface/
+.cache/torch/
+transformers_cache/
+sentence_transformers_cache/
+
+# FAISS specific files
+*.fvecs
+*.bvecs
+*.ivecs
+
+# Downloaded model files
+*.model
+*.vocab
+*.json.gz
+*.h5
+*.weights
+
+# ================================
+# Development Environment
+# ================================
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ================================
+# System Files
+# ================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ================================
+# Logs and Temporary Files
+# ================================
+
+# Application logs
+*.log
+logs/
+log/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# ================================
+# Large Data Files
+# ================================
+
+# Sample documents (optional - uncomment if you don't want to share sample docs)
+# docs/
+# *.pdf
+# *.docx
+# *.doc
+
+# Large datasets
+data/
+datasets/
+*.csv.gz
+*.jsonl
+*.parquet
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ================================
+# Security and Secrets
+# ================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+secrets.json
+config_secret.json
+
+# API keys and tokens
+*.key
+*.pem
+*.p12
+*.pfx
+api_keys.txt
+tokens.txt
+
+# ================================
+# Optional: Uncomment if needed
+# ================================
+
+# If you want to exclude ALL model files (uncomment these)
+# *.bin
+# *.safetensors
+# *.onnx
+# *.tflite
+# *.pb
+
+# If you want to exclude specific large model directories
+# sentence-transformers/
+# transformers/
+# torch_cache/
+
+# If you're using Ollama (models can be very large)
+# .ollama/
+# ollama_models/
+
+# If you're using specific embedding models locally
+# all-MiniLM-L6-v2/
+# all-mpnet-base-v2/
+# multi-qa-MiniLM-L6-cos-v1/

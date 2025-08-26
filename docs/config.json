@@ -1,0 +1,246 @@
+{
+  "application": {
+    "name": "CloudSync Desktop",
+    "version": "3.2.1",
+    "environment": "production",
+    "debug_mode": false,
+    "log_level": "INFO",
+    "update_channel": "stable"
+  },
+  "server": {
+    "api_base_url": "https://api.cloudsync.com/v1",
+    "cdn_base_url": "https://cdn.cloudsync.com",
+    "websocket_url": "wss://ws.cloudsync.com",
+    "timeout": 30000,
+    "retry_attempts": 3,
+    "retry_delay": 2000
+  },
+  "authentication": {
+    "token_storage": "keyring",
+    "token_expiry": 3600,
+    "refresh_token_expiry": 604800,
+    "two_factor_timeout": 300,
+    "session_persistence": true,
+    "auto_login": true
+  },
+  "sync": {
+    "default_sync_folder": "~/CloudSync",
+    "sync_interval": 5000,
+    "real_time_sync": true,
+    "batch_size": 100,
+    "max_file_size": 5368709120,
+    "excluded_extensions": [".tmp", ".temp", ".log", ".cache"],
+    "excluded_directories": [".git", "node_modules", "__pycache__", ".vscode"],
+    "conflict_resolution": "ask_user",
+    "version_history": {
+      "enabled": true,
+      "max_versions": 10,
+      "retention_days": 30
+    },
+    "compression": {
+      "enabled": true,
+      "algorithm": "gzip",
+      "level": 6
+    }
+  },
+  "bandwidth": {
+    "upload_limit": 0,
+    "download_limit": 0,
+    "schedule": {
+      "enabled": false,
+      "business_hours": {
+        "start": "09:00",
+        "end": "17:00",
+        "upload_limit": 1048576,
+        "download_limit": 2097152
+      },
+      "off_hours": {
+        "upload_limit": 0,
+        "download_limit": 0
+      }
+    }
+  },
+  "network": {
+    "proxy": {
+      "enabled": false,
+      "type": "http",
+      "host": "",
+      "port": 8080,
+      "username": "",
+      "password": "",
+      "bypass_list": ["localhost", "127.0.0.1", "*.local"]
+    },
+    "ssl": {
+      "verify_certificates": true,
+      "custom_ca_bundle": "",
+      "tls_version": "1.2"
+    },
+    "dns": {
+      "servers": ["8.8.8.8", "8.8.4.4"],
+      "timeout": 5000
+    }
+  },
+  "storage": {
+    "local_cache": {
+      "enabled": true,
+      "max_size": 10737418240,
+      "cleanup_threshold": 0.9,
+      "location": "~/.cache/cloudsync"
+    },
+    "database": {
+      "type": "sqlite",
+      "location": "~/.config/cloudsync/sync.db",
+      "backup_frequency": "daily",
+      "max_backups": 7
+    },
+    "temp_directory": "/tmp/cloudsync",
+    "chunk_size": 8388608
+  },
+  "ui": {
+    "theme": "system",
+    "language": "auto",
+    "window": {
+      "width": 1024,
+      "height": 768,
+      "remember_position": true,
+      "minimize_to_tray": true,
+      "start_minimized": false
+    },
+    "notifications": {
+      "enabled": true,
+      "sync_completion": true,
+      "errors": true,
+      "conflicts": true,
+      "updates": true,
+      "sound": false
+    },
+    "system_integration": {
+      "shell_extension": true,
+      "context_menu": true,
+      "overlay_icons": true,
+      "startup": true
+    }
+  },
+  "security": {
+    "encryption": {
+      "enabled": true,
+      "algorithm": "AES-256-GCM",
+      "key_derivation": "PBKDF2",
+      "iterations": 100000
+    },
+    "local_encryption": {
+      "enabled": false,
+      "encrypt_cache": true,
+      "encrypt_database": true
+    },
+    "privacy": {
+      "collect_analytics": true,
+      "crash_reporting": true,
+      "usage_statistics": false,
+      "opt_out_url": "https://cloudsync.com/privacy/opt-out"
+    }
+  },
+  "features": {
+    "selective_sync": {
+      "enabled": true,
+      "smart_sync": true,
+      "on_demand_download": true
+    },
+    "sharing": {
+      "enabled": true,
+      "public_links": true,
+      "password_protection": true,
+      "expiration_dates": true
+    },
+    "collaboration": {
+      "real_time_editing": false,
+      "comment_system": true,
+      "activity_feed": true
+    },
+    "backup": {
+      "enabled": true,
+      "incremental": true,
+      "schedule": "0 2 * * *",
+      "retention_policy": "30d"
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "file_path": "~/.config/cloudsync/logs/app.log",
+    "max_file_size": 52428800,
+    "max_files": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "modules": {
+      "sync": "DEBUG",
+      "network": "INFO",
+      "auth": "WARNING",
+      "ui": "ERROR"
+    }
+  },
+  "performance": {
+    "memory_limit": 1073741824,
+    "cpu_throttling": {
+      "enabled": true,
+      "max_cpu_usage": 25
+    },
+    "io_throttling": {
+      "enabled": true,
+      "max_read_rate": 0,
+      "max_write_rate": 0
+    },
+    "indexing": {
+      "enabled": true,
+      "full_scan_interval": 86400,
+      "watch_filesystem": true
+    }
+  },
+  "updates": {
+    "auto_check": true,
+    "check_interval": 86400,
+    "auto_install": false,
+    "beta_updates": false,
+    "update_server": "https://updates.cloudsync.com",
+    "signature_verification": true
+  },
+  "integrations": {
+    "office": {
+      "enabled": true,
+      "auto_save": true,
+      "collaborative_editing": false
+    },
+    "media": {
+      "thumbnail_generation": true,
+      "metadata_extraction": true,
+      "preview_cache": true
+    },
+    "development": {
+      "git_integration": false,
+      "ignore_build_artifacts": true,
+      "watch_package_files": false
+    }
+  },
+  "advanced": {
+    "experimental_features": {
+      "enabled": false,
+      "delta_sync": false,
+      "p2p_sync": false,
+      "blockchain_verification": false
+    },
+    "debugging": {
+      "network_tracing": false,
+      "sync_debugging": false,
+      "performance_monitoring": false,
+      "memory_profiling": false
+    },
+    "customization": {
+      "custom_themes": [],
+      "plugin_directory": "~/.config/cloudsync/plugins",
+      "script_hooks": {
+        "pre_sync": "",
+        "post_sync": "",
+        "on_conflict": ""
+      }
+    }
+  }
+}
