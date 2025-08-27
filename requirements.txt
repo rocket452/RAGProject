@@ -1,6 +1,6 @@
-sentence-transformers==3.0.1  # For embeddings (pin a version for stability)
-faiss-cpu==1.8.0  # CPU version of FAISS for vector search (use faiss-gpu if you have GPU access, but Streamlit Cloud is CPU-only by default)
-transformers==4.44.2  # For Hugging Face pipelines (e.g., gpt2)
-torch==2.4.0  # Required by transformers and sentence-transformers (CPU version; Streamlit Cloud doesn't provide GPUs for free tiers)
-requests==2.32.3  # For Ollama backend (if used)
-numpy==2.0.1  # Already used, but ensure it's included for compatibility
+sentence-transformers==3.0.1
+faiss-cpu==1.8.0
+transformers==4.44.2
+torch==2.5.0  # Updated from 2.4.0 for Python 3.13 compatibility
+requests==2.32.3
+numpy==2.0.1
